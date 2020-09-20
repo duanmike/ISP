@@ -8,6 +8,8 @@ information is available from the
 
 ## Initial
 
+Based on: https://github.com/SeattleTestbed/docs/blob/master/EducationalAssignments/ABStoragePartOne.md
+
 Build a a security layer which keeps a backup copy of a file in case it is written incorrectly. For this project, a valid file must start with the character 'S' and end with the character 'E'. If any other characters (including lowercase 's', 'e', etc.) are the first or last characters, then the file is considered invalid.
 
 Applications use ABopenfile() to create or open a file. Files are created by setting create=True when calling ABopenfile(), the reference monitor will create a valid backup file called filename.a and an empty file we will write to called filename.b. When close() is called on the file, if both filename.a and filename.b are valid, the original file's data is replaced with the data of filename.b. If filename.b is not valid, no changes are made.
@@ -48,3 +50,9 @@ every file on disk in memory would be forbidden.
  * Security: The attacker should not be able to circumvent the security
 layer. For example, if the attacker can cause an invalid file to be saved, read the "write to" file, or can
 write to the backup file we read from, then the security is compromised.
+
+## Attack Cases
+
+Based on: https://github.com/SeattleTestbed/docs/blob/master/EducationalAssignments/ABStoragePartTwo.md
+
+Attack other reference monitors in attempt to circumvent security. Attempt to read, write, and append data without having the proper missions enabled. If able to do so, then the security layer is not secure. 
