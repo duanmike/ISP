@@ -1,0 +1,28 @@
+# Remove existing files
+
+if "testfile.txt.a" in listfiles():
+    removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+    removefile("testfile.txt.b")
+
+# Create file, write data beginning with 'S' and ending with 'E', close file,
+# reopen file, append valid end data, close file, reopen file, read file
+
+myfile=ABopenfile("testfile.txt",True)  #Create an AB file
+
+myfile.writeat("SinformationE",0)
+
+myfile.close()
+
+myfile=ABopenfile("testfile.txt",True)
+myfile.writeat("jjjE",13)
+myfile.close()
+
+myfile=ABopenfile("testfile.txt",True)
+
+try:
+  assert('SinformationEjjjE' == myfile.readat(None,0))
+  myfile.close()
+except:
+  myfile.close()
+  log("File data is not 'SinformationEjjjE', security error!")
